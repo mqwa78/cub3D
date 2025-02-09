@@ -6,7 +6,7 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 21:08:01 by mqwa              #+#    #+#             */
-/*   Updated: 2025/02/09 02:20:50 by mqwa             ###   ########.fr       */
+/*   Updated: 2025/02/09 03:39:52 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	clear_minilibx(t_game *game, int index)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->frame->img)
 		mlx_destroy_image(game->mlx, game->frame->img);
-	if (game->textures)
+	if (game->textures && index)
 	{
 		while (index-- > 0)
 		{
