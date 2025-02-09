@@ -6,7 +6,7 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 21:46:16 by mqwa              #+#    #+#             */
-/*   Updated: 2025/02/09 00:15:12 by mqwa             ###   ########.fr       */
+/*   Updated: 2025/02/09 02:02:56 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,8 @@ void	ft_clear_parse(t_game *game, char *str)
 	ft_exit_err(NULL, str, 1);
 }
 
-void	ft_clear_all(t_game *game, char *str, int ex)
+void	ft_clear_all(t_game *game, char *str, int ex, int index)
 {
-	int	i;
-
-	i = 0;
 	if (game->data.no_p)
 		free(game->data.no_p);
 	if (game->data.so_p)
@@ -81,25 +78,8 @@ void	ft_clear_all(t_game *game, char *str, int ex)
 		free(game->data.ea_p);
 	if (game->data.map)
 		ft_clear_tab(&game->data.map, -1);
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	if (game->frame->img)
-		mlx_destroy_image(game->mlx, game->frame->img);
-	if (game->textures)
-	{
-		while (game->textures[i])
-			i++;
-		while (--i >= 0)
-		{
-			mlx_destroy_image(game->mlx, game->textures[i]->img);
-			free(game->textures[i]);
-		}
-	}
 	if (game->mlx)
-	{
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-	}
+		clear_minilibx(game, index);
 	ft_exit_err(NULL, str, ex);
 }
 

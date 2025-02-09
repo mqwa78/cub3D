@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   raycasting_tools.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 13:49:46 by abalasub          #+#    #+#             */
-/*   Updated: 2025/02/08 22:27:28 by mqwa             ###   ########.fr       */
+/*   Created: 2025/02/09 03:03:25 by mqwa              #+#    #+#             */
+/*   Updated: 2025/02/09 03:03:31 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
-#include <stdio.h>
 
-void	my_mlx_pixel_put(t_frame *data, int x, int y, int color)
+void	ft_ray_tools(t_ray *ray, t_player player, double ray_x, double ray_y)
 {
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
-
-int	main(int ac, char **av)
-{
-	if (ac == 2)
-		setup_game(av[1]);
-	ft_print_error(NULL, "cub3D take one argument\n", 1);
-	return (1);
+	ray->ray_x = ray_x;
+	ray->ray_y = ray_y;
+	ray->map_x = (int)player.pos_x;
+	ray->map_y = (int)player.pos_y;
+	ray->delta_x = fabs(1 / ray_x);
+	ray->delta_y = fabs(1 / ray_y);
 }

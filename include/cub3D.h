@@ -6,15 +6,15 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 14:06:38 by abalasub          #+#    #+#             */
-/*   Updated: 2025/02/08 23:25:20 by mqwa             ###   ########.fr       */
+/*   Updated: 2025/02/09 03:06:44 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "minilibx-linux/mlx.h"
-# include "libft/libft.h"
+# include "../minilibx-linux/mlx.h"
+# include "../libft/libft.h"
 # include <math.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -25,14 +25,14 @@
 # include <fcntl.h>
 
 # define BUFF_SIZE 2048
-# define ScreenWidth 800
-# define ScreenHeight 600
-# define TextWidth 1000
-# define TextHeight 1000
+# define SCREENWIDTH 800
+# define SCREENHEIGHT 600
+# define TEXTWIDTH 1000
+# define TEXTHEIGHT 1000
 # define ESC	65307
 
-typedef struct	s_ray {
-
+typedef struct s_ray
+{
 	double	ray_x;
 	double	ray_y;
 	double	delta_x;
@@ -49,7 +49,8 @@ typedef struct	s_ray {
 	int		line_height;
 }				t_ray;
 
-typedef struct	s_frame {
+typedef struct s_frame
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -57,13 +58,13 @@ typedef struct	s_frame {
 	int		endian;
 }				t_frame;
 
-typedef struct  s_player {
-	
-	double pos_x;
-	double pos_y;
-	double dir[2];
-	double dir_plane[2];
-}               t_player;
+typedef struct s_player
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir[2];
+	double	dir_plane[2];
+}				t_player;
 
 typedef struct s_data
 {
@@ -87,12 +88,8 @@ typedef struct s_data
 typedef struct s_game
 {
 	t_data		data;
-	t_player 	*player;
+	t_player	*player;
 	t_frame		*frame;
-	//t_frame		*no;
-	//t_frame		*so;
-	//t_frame		*ea;
-	//t_frame		*we;
 	t_frame		*textures[4];
 	void		*mlx;
 	void		*win;
@@ -127,14 +124,13 @@ int		ft_strcmp(char *s1, char *s2);
 void	ft_print_error(char *file, char *str, int ex);
 void	ft_clear_tab(char ***tab, int pos);
 void	ft_clear_parse(t_game *game, char *str);
-void	ft_clear_all(t_game *game, char *str, int ex);
+void	ft_clear_all(t_game *game, char *str, int ex, int index);
 void	ft_exit_err(char *file, char *str, int ex);
+void	clear_minilibx(t_game *game, int index);
 int		exit_game(t_game *game);
 
 // Display functions !
 
-void	draw_line(t_frame frame, double x0, double y0, double x1, double y1);
-void	draw_player(t_player player, t_frame frame);
 void	display_frame(t_game game);
 void	draw_stripe(t_game game, t_ray ray, int draw_start, int draw_end);
 void	my_mlx_pixel_put(t_frame *data, int x, int y, int color);
@@ -142,6 +138,7 @@ void	my_mlx_pixel_put(t_frame *data, int x, int y, int color);
 // Divers
 
 void	raycasting(t_game game);
+void	ft_ray_tools(t_ray *ray, t_player player, double ray_x, double ray_y);
 uint	get_pixel_img(t_frame *data, int x, int y);
 
 // Event

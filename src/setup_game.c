@@ -6,7 +6,7 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:16:36 by mqwa              #+#    #+#             */
-/*   Updated: 2025/02/08 22:50:39 by mqwa             ###   ########.fr       */
+/*   Updated: 2025/02/09 01:58:13 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ void	setup_game(char *file)
 	if (!ft_setup_data(&game))
 		ft_clear_parse(&game, "Wrong format in file\n");
 	if (!start_game(game))
-		ft_clear_all(&game, "minilibX error\n", 1);
+		ft_clear_all(&game, "minilibX error\n", 1, 0);
 }
