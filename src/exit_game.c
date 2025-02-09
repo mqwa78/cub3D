@@ -6,7 +6,7 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 21:08:01 by mqwa              #+#    #+#             */
-/*   Updated: 2025/02/09 03:39:52 by mqwa             ###   ########.fr       */
+/*   Updated: 2025/02/09 03:43:34 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void	clear_minilibx(t_game *game, int index)
 
 int	exit_game(t_game *game)
 {
-	ft_clear_all(game, "Thank you for playing !\n", 0, 4);
+	ft_clear_all(game, "Thanks you for playing !\n", 0, 4);
 	return (1);
 }

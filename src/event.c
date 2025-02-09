@@ -6,7 +6,7 @@
 /*   By: mqwa <mqwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:16:51 by abalasub          #+#    #+#             */
-/*   Updated: 2025/02/09 01:58:48 by mqwa             ###   ########.fr       */
+/*   Updated: 2025/02/09 03:43:46 by mqwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	key_press(int keycode, t_game *game)
 	if (keycode == 65363)
 		turn_camera(game, 0.2);
 	if (keycode == ESC)
-		ft_clear_all(game, "Thank you for playing !\n", 0, 4);
+		ft_clear_all(game, "Thanks you for playing !\n", 0, 4);
 	display_frame(*game);
 	return (0);
 }
